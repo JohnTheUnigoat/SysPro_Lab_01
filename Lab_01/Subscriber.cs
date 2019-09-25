@@ -58,5 +58,10 @@ namespace Lab_01
 
             Balance = 0.0f;
         }
+
+        public void ChangeTariff(TariffName newTariff)
+        {
+            currentTariff = newTariff;
+        }
     }
 }
