@@ -61,6 +61,30 @@ namespace Lab_01
 
         public float Balance { get; private set; }
 
+        public string[] CallHistory
+        {
+            get
+            {
+                string[] calls = new string[callHistory.Count()];
+
+                StringBuilder sb = new StringBuilder();
+
+                for (int i = 0; i < callHistory.Count(); i++)
+                {
+                    sb.Clear();
+
+                    sb.Append(callHistory[i].number);
+                    sb.Append(" - ");
+                    sb.Append(callHistory[i].minutes.ToString());
+                    sb.Append(" min.");
+
+                    calls[i] = sb.ToString();
+                }
+
+                return calls;
+            }
+        }
+
         static private void CheckNumber(string number)
         {
             if (number.Length != 10)
