@@ -22,7 +22,19 @@ namespace Lab_01
             [TariffName.Ultimate] = 0.0f
         };
 
+        public enum ServiceName { Additional_data, Data_sharing, Calls_abroad, Music_for_beeps };
+
+        static private Dictionary<ServiceName, float> servicePricing = new Dictionary<ServiceName, float>()
+        {
+            [ServiceName.Additional_data] = 25.0f,
+            [ServiceName.Data_sharing] = 35.0f,
+            [ServiceName.Calls_abroad] = 65.0f,
+            [ServiceName.Music_for_beeps] = 15.0f
+        };
+
         private TariffName currentTariff;
+
+        private HashSet<ServiceName> activeServices;
 
         public string CurrentTariff { get { return currentTariff.ToString().Replace('_', ' '); } }
 
