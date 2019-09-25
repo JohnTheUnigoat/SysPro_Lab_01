@@ -27,5 +27,24 @@ namespace Lab_01
         public string CurrentTariff { get { return currentTariff.ToString().Replace('_', ' '); } }
 
         public float MinuteTalkCost { get { return tariffMinuteCost[currentTariff]; } }
+
+        public string PhoneNumber { get; private set; }
+
+        public float Balance { get; private set; }
+
+        public Subscriber(string phoneNumber = "0000000000", TariffName tariff = TariffName.Standard)
+        {
+            if (phoneNumber.Length != 10)
+                throw new ArgumentException("A phone number should be exactly 10 digits long!");
+
+            if (!phoneNumber.All(symbol => char.IsDigit(symbol)))
+                throw new ArgumentException("A phone number can only contain digits!");
+
+            currentTariff = tariff;
+
+            PhoneNumber = phoneNumber;
+
+            Balance = 0.0f;
+        }
     }
 }
