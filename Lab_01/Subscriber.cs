@@ -113,5 +113,13 @@ namespace Lab_01
         {
             return activeServices.Remove(name);
         }
+
+        public void ReplenishBalance(float amount)
+        {
+            if (amount <= 0)
+                throw new ArgumentOutOfRangeException("Replenishing amount should be positive!");
+
+            Balance += amount;
+        }
     }
 }
