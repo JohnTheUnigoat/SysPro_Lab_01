@@ -98,5 +98,20 @@ namespace Lab_01
 
             return cost;
         }
+
+        public bool AddService(ServiceName name)
+        {
+            if (activeServices.Contains(name))
+                return false;
+
+            Balance -= servicePricing[name];
+
+            return true;
+        }
+
+        public bool RemoveService(ServiceName name)
+        {
+            return activeServices.Remove(name);
+        }
     }
 }
