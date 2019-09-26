@@ -82,6 +82,17 @@ namespace Lab_01
             PrintSubscriber(subscriber2);
 
             Console.WriteLine();
+
+            // Tariff change test
+            subscriber1.ChangeTariff(Subscriber.TariffName.Premium);
+            Console.WriteLine("Subscriber 1:");
+            PrintSubscriber(subscriber1);
+
+            subscriber2.ChangeTariff(Subscriber.TariffName.Ultimate);
+            Console.WriteLine("Subscriber 2:");
+            PrintSubscriber(subscriber2);
+
+            Console.WriteLine();
         }
     }
 }
