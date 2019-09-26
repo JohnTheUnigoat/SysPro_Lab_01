@@ -93,6 +93,17 @@ namespace Lab_01
             PrintSubscriber(subscriber2);
 
             Console.WriteLine();
+
+            // Balance replenish test
+            Console.WriteLine("Adding 150 to subscriber1's balance...");
+            subscriber1.ReplenishBalance(150.0f);
+            Console.WriteLine("Subscriber1's balance: {0}\n", subscriber1.Balance);
+
+            Console.WriteLine("Adding 300 to subscriber2's balance...");
+            subscriber2.ReplenishBalance(300.0f);
+            Console.WriteLine("Subscriber2's balance: {0}\n", subscriber2.Balance);
+
+            Console.WriteLine()
         }
     }
 }
