@@ -148,6 +148,8 @@ namespace Lab_01
 
             Balance -= servicePricing[name];
 
+            activeServices.Add(name);
+
             return true;
         }
 

@@ -38,7 +38,7 @@ namespace Lab_01
             {
                 for (int i = 0; i < activeServices.Count() - 1; i++)
                     Console.Write(activeServices[i] + ", ");
-                Console.Write(activeServices[activeServices.Count() - 1]);
+                Console.WriteLine(activeServices[activeServices.Count() - 1]);
             }
             Console.WriteLine();
         }
@@ -133,6 +133,24 @@ namespace Lab_01
             subscriber2.MakeCall("6484884689", 2);
             subscriber2.MakeCall("1234567890", 15);
 
+            PrintSubscriber(subscriber2);
+
+            Console.WriteLine();
+
+            // Services test
+            Console.WriteLine("Subscriber1 adds \"Calls abroad\" service...");
+            subscriber1.AddService(Subscriber.ServiceName.Calls_abroad);
+            PrintSubscriber(subscriber1);
+
+            Console.WriteLine("Subscriber2 adds all the services...");
+            subscriber2.AddService(Subscriber.ServiceName.Additional_data);
+            subscriber2.AddService(Subscriber.ServiceName.Calls_abroad);
+            subscriber2.AddService(Subscriber.ServiceName.Data_sharing);
+            subscriber2.AddService(Subscriber.ServiceName.Music_for_beeps);
+            PrintSubscriber(subscriber2);
+
+            Console.WriteLine("Subscriber2 tries to add \"Data sharing\" again...");
+            subscriber2.AddService(Subscriber.ServiceName.Data_sharing);
             PrintSubscriber(subscriber2);
         }
     }
