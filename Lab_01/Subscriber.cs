@@ -132,11 +132,20 @@ namespace Lab_01
         {
             CheckNumber(number);
 
-            callHistory.Add(new Call(number, minutes));
+            if (Balance < tariffsMinuteCost[currentTariff])
+                return 0;
 
             float cost = minutes * tariffsMinuteCost[currentTariff];
 
+            if (Balance < cost)
+            {
+                minutes = (int)Balance / (int)tariffsMinuteCost[currentTariff];
+                cost = minutes * tariffsMinuteCost[currentTariff];
+            }
+
             Balance -= cost;
+
+            callHistory.Add(new Call(number, minutes));
 
             return cost;
         }
@@ -144,6 +153,9 @@ namespace Lab_01
         public bool AddService(ServiceName name)
         {
             if (activeServices.Contains(name))
+                return false;
+
+            if (Balance < servicePricing[name])
                 return false;
 
             Balance -= servicePricing[name];
