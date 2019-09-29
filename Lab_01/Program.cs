@@ -119,6 +119,21 @@ namespace Lab_01
             Console.WriteLine("Subscriber2's balance: {0}\n", subscriber2.Balance);
 
             Console.WriteLine();
+
+            // Calling test
+            Console.WriteLine("Subscriber1 calls 0503232201 for 6 minutes...");
+            subscriber1.MakeCall("0503232201", 6);
+
+            PrintSubscriber(subscriber1);
+
+            Console.WriteLine("Subscriber2 makes 5 different calls...");
+            subscriber2.MakeCall("6577432865", 1);
+            subscriber2.MakeCall("7389459347", 3);
+            subscriber2.MakeCall("0189271347", 21);
+            subscriber2.MakeCall("6484884689", 2);
+            subscriber2.MakeCall("1234567890", 15);
+
+            PrintSubscriber(subscriber2);
         }
     }
 }
