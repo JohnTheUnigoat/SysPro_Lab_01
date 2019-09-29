@@ -85,6 +85,23 @@ namespace Lab_01
             }
         }
 
+        public string[] ActiveServices
+        {
+            get
+            {
+                string[] services = new string[activeServices.Count];
+
+                int i = 0;
+                foreach (var service in activeServices)
+                {
+                    services[i] = service.ToString().Replace('_', ' ');
+                    i++;
+                }
+
+                return services;
+            }
+        }
+
         static private void CheckNumber(string number)
         {
             if (number.Length != 10)
@@ -103,6 +120,7 @@ namespace Lab_01
             Balance = 0.0f;
 
             callHistory = new List<Call>();
+            activeServices = new HashSet<ServiceName>();
         }
 
         public void ChangeTariff(TariffName newTariff)
