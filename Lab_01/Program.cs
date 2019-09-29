@@ -21,9 +21,24 @@ namespace Lab_01
 
             Console.WriteLine("Call history:");
             string[] callHistory = subscriber.CallHistory;
-            foreach (var item in callHistory)
+
+            if (callHistory.Count() == 0)
+                Console.WriteLine("    empty");
+            else
+                foreach (var item in callHistory)
+                    Console.WriteLine("    " + item);
+
+            Console.WriteLine("Active services:");
+            string[] activeServices = subscriber.ActiveServices;
+            Console.Write("    ");
+
+            if (activeServices.Count() == 0)
+                Console.WriteLine("none");
+            else
             {
-                Console.WriteLine(item);
+                for (int i = 0; i < activeServices.Count() - 1; i++)
+                    Console.Write(activeServices[i] + ", ");
+                Console.Write(activeServices[activeServices.Count() - 1]);
             }
             Console.WriteLine();
         }
@@ -88,7 +103,7 @@ namespace Lab_01
             Console.WriteLine("Subscriber 1:");
             PrintSubscriber(subscriber1);
 
-            subscriber2.ChangeTariff(Subscriber.TariffName.Ultimate);
+            subscriber2.ChangeTariff(Subscriber.TariffName.Premium_plus);
             Console.WriteLine("Subscriber 2:");
             PrintSubscriber(subscriber2);
 
@@ -103,7 +118,7 @@ namespace Lab_01
             subscriber2.ReplenishBalance(300.0f);
             Console.WriteLine("Subscriber2's balance: {0}\n", subscriber2.Balance);
 
-            Console.WriteLine()
+            Console.WriteLine();
         }
     }
 }
